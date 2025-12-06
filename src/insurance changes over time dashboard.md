@@ -6,6 +6,8 @@ toc: false
 
 tableau stuff
 
+<img src="./data/Pittsburgh.jpg" alt="Description" style="width: 100%">
+
 <div id="tableauVizIncome" 
   style="width: 100%; height: 800px;">
 </div> 

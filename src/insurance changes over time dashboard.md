@@ -102,7 +102,7 @@ function smallMultiples(data, { width } = {}, legend, title, yDomain, yLabel, yF
       label: yLabel,
       grid: true,
       tickFormat: yFormat,
-      domain: yDomain
+      domain: [0, 1800]
     },
     color: {
       type: "categorical",
@@ -148,23 +148,89 @@ display(resize(width => smallMultiples(med_debt50, { width }, false)));
 // display(resize(width => smallMultiples(share_debt50, { width }, false)));
 ```
 
-<div id="income & debt tableau viz" style="width: 100%; height: 800px;"></div>
+```js
+// Prepare data for income vs debt scatterplot, excluding 2020 and 2023
+const incomeDebtData = debt.map(d => ({
+  year: d.Year,
+  state: d["State Abbreviation"],
+  medianDebt: d[colMedian],
+  avgIncome: d["Average household income in $2023"] // Adjust column name if different
+})).filter(d => d.avgIncome != null && d.medianDebt != null && d.year !== 2020 && d.year !== 2023);
 
-<script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+// Get unique years for faceting
+const years = [...new Set(incomeDebtData.map(d => d.year))].sort();
+```
 
-<script type="module">
-  const vizUrl = "https://public.tableau.com/views/smallmultiples_17637769720780/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link";
-  
-  const viz = new tableau.Viz(
-    document.getElementById("income & debt tableau viz"),
-    vizUrl,
-    {
-      hideTabs: true,
-      hideToolbar: false,
-      width: "110%",
-      height: "800px"
-    }
-  );
-</script>
+```js
+function incomeDebtScatterplot(data, { width } = {}, title, columns, incomeExtent, debtExtent) {
+  return Plot.plot({
+    width,
+    height: 350,
+    marginLeft: 60,
+    marginRight: 20,
+    marginTop: title ? 40 : 30,
+    marginBottom: 60,
+    title: title,
+    facet: {
+      data: data,
+      x: "year",
+      columns: columns
+    },
+    fx: {
+      label: "Year"
+    },
+    x: {
+      label: "Average Household Income ($)",
+      grid: true,
+      tickFormat: "~s",
+      domain: incomeExtent
+    },
+    y: {
+      label: "Median Medical Debt ($)",
+      grid: true,
+      tickFormat: "~s",
+      domain: debtExtent
+    },
+    marks: [
+      Plot.frame(),
+      // Regression line for each year
+      Plot.linearRegressionY(data, {
+        x: "avgIncome",
+        y: "medianDebt",
+        fx: "year",
+        stroke: "#3b82f6",
+        strokeWidth: 2,
+        strokeOpacity: 0.6
+      }),
+      // Scatter points
+      Plot.dot(data, {
+        x: "avgIncome",
+        y: "medianDebt",
+        fx: "year",
+        fill: "#3b82f6",
+        r: 3,
+        fillOpacity: 0.7,
+        tip: true,
+        title: d => `${d.state}\nIncome: ${d3.format(",.0f")(d.avgIncome)}\nDebt: ${d3.format(",.0f")(d.medianDebt)}`
+      })
+    ]
+  });
+}
 
-# ArcGIS Map
+// Split into two rows as evenly as possible
+const midpoint = Math.ceil(years.length / 2);
+const firstRowYears = years.slice(0, midpoint);
+const secondRowYears = years.slice(midpoint);
+
+const firstRowData = incomeDebtData.filter(d => firstRowYears.includes(d.year));
+const secondRowData = incomeDebtData.filter(d => secondRowYears.includes(d.year));
+
+// Calculate global scales across all data
+const incomeExtent = d3.extent(incomeDebtData, d => d.avgIncome);
+const debtExtent = d3.extent(incomeDebtData, d => d.medianDebt);
+
+display(resize(width => incomeDebtScatterplot(firstRowData, { width }, "Median Medical Debt vs Average Household Income by Year", firstRowYears.length, incomeExtent, debtExtent)));
+display(resize(width => incomeDebtScatterplot(secondRowData, { width }, null, secondRowYears.length, incomeExtent, debtExtent)));
+```
+
+

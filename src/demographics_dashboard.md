@@ -23,7 +23,7 @@ const debtLong = debt.flatMap(d => [
   {
     year: d.Year,
     state: d["State Abbreviation"],
-    group: "Majority of Color",
+    group: "Color",
     value: d[colColor]
   }
 ]);
@@ -54,7 +54,7 @@ function smallMultiples(data, { width } = {}, legend, title) {
     height: 250,
     marginLeft: 60,
     marginRight: 20,
-    marginTop: title ? 40 : 30, // Extra space for title if present
+    marginTop: title ? 40 : 30,
     title: title,
     facet: {
       data,
@@ -79,7 +79,7 @@ function smallMultiples(data, { width } = {}, legend, title) {
     },
     color: {
       type: "categorical",
-      domain: ["White", "Majority of Color"],
+      domain: ["White", "Color"],
       range: ["steelblue", "firebrick"],
       legend: legend
     },

@@ -3,6 +3,14 @@ theme: dashboard
 title: Dashboard for Demographics Analysis
 toc: false
 ---
+<!-- THis is the choloroplath map for medical debt vs. household income, from Dashboard 3-->
+<div id="tableauViz" 
+style="width: 100%; height: 800px;"></div> 
+<script src="https://public.tableau.com/javascripts/api/tableau-2.min.js">
+</script> <script type="module"> 
+const vizUrl = "https://public.tableau.com/shared/57FW3F2K8?:display_count=n&:origin=viz_share_link"; 
+const viz = new tableau.Viz( document.getElementById("tableauViz"), 
+vizUrl, { hideTabs: true, hideToolbar: false, width: "100%", height: "800px" } ); </script>
 
 <!-- This is for the Scatterplot -->
 <div id="tableauViz" 

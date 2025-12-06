@@ -4,7 +4,18 @@ title: insurance changes over time dashboard
 toc: false
 ---
 
-<!-- Jonas' visualizations -->
+tableau stuff
+
+<div id="tableauVizIncome" 
+  style="width: 100%; height: 800px;">
+</div> 
+<script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script> 
+<script type="module"> 
+  const vizUrl = "https://public.tableau.com/views/Dashboard1LineChart-MedicalDebtOverTime/LineChartMedicalDebtOverTime?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"; 
+  const viz = new tableau.Viz( document.getElementById("tableauVizIncome"), 
+  vizUrl, { hideTabs: true, hideToolbar: false, width: "100%", height: "800px" } ); 
+</script>
+
 ```js
 const debt = await FileAttachment("./data/med_debt_by_state.csv").csv({ typed: true });
 const colMedian = "Median medical debt in collections in $2023"

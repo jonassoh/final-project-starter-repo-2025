@@ -7,9 +7,6 @@ toc: false
 <!-- Jonas' visualizations -->
 ```js
 const debt = await FileAttachment("./data/med_debt_by_state.csv").csv({ typed: true });
-```
-
-```js
 const colMedian = "Median medical debt in collections in $2023"
 
 const medianDebt = debt.flatMap(d => [
@@ -144,10 +141,30 @@ display(resize(width => smallMultiples(med_debt40, { width }, false)));
 display(resize(width => smallMultiples(med_debt50, { width }, false)));
 
 
-display(resize(width => smallMultiples(share_debt10, { width }, true, "Share of Medical Debt by State over Time")));
-display(resize(width => smallMultiples(share_debt20, { width }, false)));
-display(resize(width => smallMultiples(share_debt30, { width }, false)));
-display(resize(width => smallMultiples(share_debt40, { width }, false)));
-display(resize(width => smallMultiples(share_debt50, { width }, false)));
+// display(resize(width => smallMultiples(share_debt10, { width }, true, "Share of Medical Debt by State over Time")));
+// display(resize(width => smallMultiples(share_debt20, { width }, false)));
+// display(resize(width => smallMultiples(share_debt30, { width }, false)));
+// display(resize(width => smallMultiples(share_debt40, { width }, false)));
+// display(resize(width => smallMultiples(share_debt50, { width }, false)));
 ```
 
+<div id="income & debt tableau viz" style="width: 100%; height: 800px;"></div>
+
+<script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+
+<script type="module">
+  const vizUrl = "https://public.tableau.com/views/smallmultiples_17637769720780/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link";
+  
+  const viz = new tableau.Viz(
+    document.getElementById("income & debt tableau viz"),
+    vizUrl,
+    {
+      hideTabs: true,
+      hideToolbar: false,
+      width: "110%",
+      height: "800px"
+    }
+  );
+</script>
+
+# ArcGIS Map

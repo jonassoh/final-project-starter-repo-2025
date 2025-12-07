@@ -4,7 +4,11 @@ title: insurance changes over time dashboard
 toc: false
 ---
 
-tableau stuff
+# Medical Debt Over Time
+
+text
+
+## Visualizations:
 
 <div id="tableauVizIncome" 
   style="width: 100%; height: 800px;">
@@ -243,3 +247,21 @@ const debtExtent = d3.extent(incomeDebtData, d => d.medianDebt);
 display(resize(width => incomeDebtScatterplot(firstRowData, { width }, "Median Medical Debt vs Average Household Income by Year", firstRowYears.length, incomeExtent, debtExtent)));
 display(resize(width => incomeDebtScatterplot(secondRowData, { width }, null, secondRowYears.length, incomeExtent, debtExtent)));
 ```
+
+## Process of Designing the Dashboard
+
+text
+
+## Design Rationale
+
+text
+
+## Tool(s)
+
+text
+
+## Connecting __ to Systemic Healthcare Issues
+
+text
+
+## References

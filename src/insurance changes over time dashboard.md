@@ -6,8 +6,6 @@ toc: false
 
 tableau stuff
 
-<img src="./data/Pittsburgh.jpg" alt="Description" style="width: 100%">
-
 <div id="tableauVizIncome" 
   style="width: 100%; height: 800px;">
 </div> 
@@ -15,7 +13,7 @@ tableau stuff
 <script type="module"> 
   const vizUrl = "https://public.tableau.com/views/Dashboard1LineChart-MedicalDebtOverTime/LineChartMedicalDebtOverTime?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"; 
   const viz = new tableau.Viz( document.getElementById("tableauVizIncome"), 
-  vizUrl, { hideTabs: true, hideToolbar: false, width: "100%", height: "800px" } ); 
+  vizUrl, { hideTabs: true, hideToolbar: false, width: "110%", height: "800px" } ); 
 </script>
 
 ```js
@@ -115,7 +113,7 @@ function smallMultiples(data, { width } = {}, legend, title, yDomain, yLabel, yF
       label: yLabel,
       grid: true,
       tickFormat: yFormat,
-      domain: [0, 1800]
+      domain: [0, 2000]
     },
     color: {
       type: "categorical",
@@ -245,5 +243,3 @@ const debtExtent = d3.extent(incomeDebtData, d => d.medianDebt);
 display(resize(width => incomeDebtScatterplot(firstRowData, { width }, "Median Medical Debt vs Average Household Income by Year", firstRowYears.length, incomeExtent, debtExtent)));
 display(resize(width => incomeDebtScatterplot(secondRowData, { width }, null, secondRowYears.length, incomeExtent, debtExtent)));
 ```
-
-

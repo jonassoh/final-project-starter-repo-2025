@@ -1,6 +1,6 @@
 ---
 theme: dashboard
-title: demographics dashboard
+title: Demographics Affected
 toc: false
 ---
 

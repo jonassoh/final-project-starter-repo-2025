@@ -1,6 +1,6 @@
 ---
 theme: dashboard
-title: potential redlining
+title: Potential Redlining
 toc: false
 ---
 

@@ -1,6 +1,6 @@
 ---
 theme: dashboard
-title: insurance changes over time dashboard
+title: Medical Debt Over Time
 toc: false
 ---
 
@@ -255,7 +255,9 @@ We used the following tools for our visualizations:
 
 ## Connecting Medical Debt Over Time to Systemic Healthcare Issues
 
-text
+We are able to conclude that while the current policies and systems have potentially helped in reducing medical debt share, they have struggled to resolve the rising medical costs and debt since 2011. This trend is more prominent amongst households of lower income. This amount is even on the higher end as the dataset uses averages, which are typically skewed due to the richest 1%. Meaning that for most Americans, they have a lower income and a medical debt that takes a higher portion of they money. Even the drastic reduction in medical debt share is possibly a distraction caused by the Credit Bureau's decision to exclude medical debts under $500 in their reports. 
+
+All of these visualizations provide evidence that the current policies we have in place are not sufficient and have not shown significant benefits to the common people for over a decade. 
 
 ## References
 

@@ -19,7 +19,7 @@ export default {
   pages: [
     {name: "Insurance Changes Over Time", path: "/insurance_changes_over_time"},
     {name: "Potential Redlining", path: "/potential_redlining"},
-    {name: "Demographics Dashboard", path: "/demographics"}
+    {name: "Demographic Patterns", path: "/demographics"}
   ],
 
   // Content to add to the head of the page, e.g. for a favicon:

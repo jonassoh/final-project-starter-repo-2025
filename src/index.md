@@ -32,18 +32,18 @@ Our primary audience includes policymakers, nonprofit organizations, healthcare 
 
 <div class="grid grid-cols-2" style="margin: 3rem 0;">
   <div class="card">
-    <h2>Insurance Changes Over Time</h2>
-    <a href="./insurance-changes-over-time-dashboard">Explore trends in health insurance coverage and medical debt across states →</a>
+    <h2>See the</h2>
+    <a href="./insurance-changes-over-time-dashboard">Insurance Changes Over Time</a>
   </div>
 
   <div class="card">
-    <h2>Demographics Dashboard</h2>
-    <a href="./demographics-dashboard">Analyze demographic patterns and their relationship to medical debt →</a>
+    <h2>See the</h2>
+    <a href="./demographics-dashboard">Demographic Patterns</a>
   </div>
 
   <div class="card">
-    <h2>Potential Redlining</h2>
-    <a href="./potential-redlining">Investigate geographic patterns that may indicate systemic disparities →</a>
+    <h2>See the</h2>
+    <a href="./potential-redlining">Potential Redlining</a>
   </div>
 </div>
 

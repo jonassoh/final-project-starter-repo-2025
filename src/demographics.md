@@ -1,6 +1,6 @@
 ---
 theme: dashboard
-title: Demographics Affected
+title: Demographic Patterns
 toc: true
 ---
 

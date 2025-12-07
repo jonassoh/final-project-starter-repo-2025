@@ -31,111 +31,44 @@ Our primary audience includes policymakers, nonprofit organizations, healthcare 
 ## Medical Debt Over Time
 
 ```js
+import {smallMultiples} from "./components/med_debt_over_time.js";
+
 const debt = await FileAttachment("./data/med_debt_by_state.csv").csv({ typed: true });
-```
+const colMedian = "Median medical debt in collections in $2023"
 
-```js
-const colWhite = "Median medical debt in collections in $2023 - Majority White";
-const colColor = "Median medical debt in collections in $2023 - Majority of Color";
-
-const debtLong = debt.flatMap(d => [
+const medianDebt = debt.flatMap(d => [
   {
     year: d.Year,
     state: d["State Abbreviation"],
-    group: "White",
-    value: d[colWhite]
-  },
-  {
-    year: d.Year,
-    state: d["State Abbreviation"],
-    group: "Color",
-    value: d[colColor]
+    group: "Median",
+    value: d[colMedian]
   }
 ]);
+
+//split into rows of 10 states for median debt
+const states10 = [...new Set(medianDebt.map(d => d.state))].slice(0, 10);
+const med_debt10 = medianDebt.filter(d => states10.includes(d.state));
+
+const states20 = [...new Set(medianDebt.map(d => d.state))].slice(10, 20);
+const med_debt20 = medianDebt.filter(d => states20.includes(d.state));
+
+const states30 = [...new Set(medianDebt.map(d => d.state))].slice(20, 30);
+const med_debt30 = medianDebt.filter(d => states30.includes(d.state));
+
+const states40 = [...new Set(medianDebt.map(d => d.state))].slice(30, 40);
+const med_debt40 = medianDebt.filter(d => states40.includes(d.state));
+
+const states50 = [...new Set(medianDebt.map(d => d.state))].slice(40, 50);
+const med_debt50 = medianDebt.filter(d => states50.includes(d.state));
+
+display(resize(width => smallMultiples(med_debt10, { width }, true, "Median Medical Debt by State over Time")));
+display(resize(width => smallMultiples(med_debt20, { width }, false)));
+display(resize(width => smallMultiples(med_debt30, { width }, false)));
+display(resize(width => smallMultiples(med_debt40, { width }, false)));
+display(resize(width => smallMultiples(med_debt50, { width }, false)));
 ```
 
-```js
-//split into rows of 10 states
-const states10 = [...new Set(debtLong.map(d => d.state))].slice(0, 10);
-const debt10 = debtLong.filter(d => states10.includes(d.state));
 
-const states20 = [...new Set(debtLong.map(d => d.state))].slice(10, 20);
-const debt20 = debtLong.filter(d => states20.includes(d.state));
-
-const states30 = [...new Set(debtLong.map(d => d.state))].slice(20, 30);
-const debt30 = debtLong.filter(d => states30.includes(d.state));
-
-const states40 = [...new Set(debtLong.map(d => d.state))].slice(30, 40);
-const debt40 = debtLong.filter(d => states40.includes(d.state));
-
-const states50 = [...new Set(debtLong.map(d => d.state))].slice(40, 50);
-const debt50 = debtLong.filter(d => states50.includes(d.state));
-```
-
-```js
-function smallMultiples(data, { width } = {}, legend, title) {
-  return Plot.plot({
-    width,
-    height: 250,
-    marginLeft: 60,
-    marginRight: 20,
-    marginTop: title ? 40 : 30,
-    title: title,
-    facet: {
-      data,
-      x: "state",
-      columns: 10,
-      marginRight: 60
-    },
-    fx: {
-      label: null
-    },
-    x: {
-      type: "linear",
-      label: "Year →",
-      tickFormat: d3.format("d"),
-      ticks: 3
-    },
-    y: {
-      label: "↑ Debt ($)",
-      grid: true,
-      tickFormat: "s",
-      domain: [0, 2000]
-    },
-    color: {
-      type: "categorical",
-      domain: ["White", "Color"],
-      range: ["steelblue", "firebrick"],
-      legend: legend
-    },
-    marks: [
-      Plot.frame(),
-      Plot.line(data, {
-        x: "year",
-        y: "value",
-        stroke: "group",
-        strokeWidth: 1.5,
-        fx: "state"
-      }),
-      Plot.dot(data, {
-        x: "year",
-        y: "value",
-        fill: "group",
-        r: 2,
-        fx: "state",
-        tip: true
-      }),
-      Plot.ruleY([0])
-    ]
-  });
-}
-
-display(resize(width => smallMultiples(debt10, { width }, true, "Median Medical Debt by State and Ethnicity")));
-display(resize(width => smallMultiples(debt20, { width }, false)));
-display(resize(width => smallMultiples(debt30, { width }, false)));
-display(resize(width => smallMultiples(debt40, { width }, false)));
-display(resize(width => smallMultiples(debt50, { width }, false)));
-```
 
 ## Conclusion
 

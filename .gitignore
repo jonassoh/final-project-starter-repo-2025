@@ -4,3 +4,4 @@ node_modules/
 yarn-error.log
 .ipynb_checkpoints/
 .virtual_documents/
+.vercel

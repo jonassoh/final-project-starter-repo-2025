@@ -1,12 +1,14 @@
 ---
 theme: dashboard
-title: insurance changes over time dashboard
+title: Medical Debt Over Time
 toc: false
 ---
 
 # Medical Debt Over Time
 
-text
+Medical debt is a key factor in identifying issues in the healthcare system and their severity. By analyzing historical trends in medical debt, share, and health insurance coverage, we emphasize the key features of the US healthcare system that have changed from 2011 to 2023, and how these changes contribute to the rising medical debt.
+
+The visualizations present compelling evidence of rising medical debts, the urgency of the matter, and how these key metrics relate to one another. The goal of this dashboard is to answer the question: **"How have key features of the U.S. health insurance system (coverage rates, out-of-pocket costs, and premiums) changed over time, and how have these changes influenced medical debt?"**
 
 ## Visualizations:
 
@@ -17,8 +19,10 @@ text
 <script type="module"> 
   const vizUrl = "https://public.tableau.com/views/Dashboard1LineChart-MedicalDebtOverTime/LineChartMedicalDebtOverTime?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"; 
   const viz = new tableau.Viz( document.getElementById("tableauVizIncome"), 
-  vizUrl, { hideTabs: true, hideToolbar: false, width: "110%", height: "800px" } ); 
+  vizUrl, { hideTabs: true, hideToolbar: false, width: "50%", height: "800px" } ); 
 </script>
+
+The plots above indicate that the share of medical debt has continually decreased, down to just 6% in 2023, while the proportion of individuals without health insurance has stagnated around 10% from 2018 - 2023. 
 
 ```js
 const debt = await FileAttachment("./data/med_debt_by_state.csv").csv({ typed: true });
@@ -48,26 +52,6 @@ const med_debt40 = medianDebt.filter(d => states40.includes(d.state));
 
 const states50 = [...new Set(medianDebt.map(d => d.state))].slice(40, 50);
 const med_debt50 = medianDebt.filter(d => states50.includes(d.state));
-```
-
-```js
-const colShare = "Share with medical debt in collections"
-
-const shareDebt = debt.flatMap(d => [
-  {
-    year: d.Year,
-    state: d["State Abbreviation"],
-    group: "Share",
-    value: d[colShare]
-  }
-]);
-
-//split into rows of 10 states for share (% population) in debt
-const share_debt10 = shareDebt.filter(d => states10.includes(d.state));
-const share_debt20 = shareDebt.filter(d => states20.includes(d.state));
-const share_debt30 = shareDebt.filter(d => states30.includes(d.state));
-const share_debt40 = shareDebt.filter(d => states40.includes(d.state));
-const share_debt50 = shareDebt.filter(d => states50.includes(d.state));
 ```
 
 ```js
@@ -155,13 +139,9 @@ display(resize(width => smallMultiples(med_debt30, { width }, false)));
 display(resize(width => smallMultiples(med_debt40, { width }, false)));
 display(resize(width => smallMultiples(med_debt50, { width }, false)));
 
-
-// display(resize(width => smallMultiples(share_debt10, { width }, true, "Share of Medical Debt by State over Time")));
-// display(resize(width => smallMultiples(share_debt20, { width }, false)));
-// display(resize(width => smallMultiples(share_debt30, { width }, false)));
-// display(resize(width => smallMultiples(share_debt40, { width }, false)));
-// display(resize(width => smallMultiples(share_debt50, { width }, false)));
 ```
+
+While many states showed mostly stagnant or decreasing trends in medical debt, every state saw a massive spike in median medical debt in 2023. 
 
 ```js
 // Prepare data for income vs debt scatterplot, excluding 2020 and 2023
@@ -248,20 +228,40 @@ display(resize(width => incomeDebtScatterplot(firstRowData, { width }, "Median M
 display(resize(width => incomeDebtScatterplot(secondRowData, { width }, null, secondRowYears.length, incomeExtent, debtExtent)));
 ```
 
+The scatterplots above demonstrate the historical trend for lower income households to experience higher medical debts, which is more nuemrically and proportional to their annual income. 
+
+Overall, our analysis shows improvements in reducing medical share and proportion of uninsured individuals but an increase in medical debt across all states. 
+
 ## Process of Designing the Dashboard
 
 text
 
 ## Design Rationale
 
-text
+Our dashboard utilizes three visualizations to capture the trends of many of the variables related to medical debt:
+1. **Line Plot + Visual Map:** A line plot was chosen to show the general trends in the percent of the population with medical debt and health insurance coverage over time. This chart emphasizes the downward trend in both categories and the stabilization of health insurance coverage. 
+
+2. **Small Multiples (Line Plot):** A small multiple of line plots were used to show the general trends in medical debt of each state. This visualization allows for easy comparison between states and highlights when median debt is increasing (bad) and decreasing (good) using red and blue lines.
+3. **Small Multiples (Scatter Plot):** A small multiple of scatter plots were used to show the general relationship between medical debt and average household income over the years. This visualization enables easy comparison and highlights the consistent inverse relationship with a trend line. 
+
 
 ## Tool(s)
 
-text
+We used the following tools for our visualizations:
 
-## Connecting __ to Systemic Healthcare Issues
+1. **Tableau:** This tool allowed us to efficiently create simple visualizations (like standalone line plots) to show the trends in our data without complication or chart junk.
 
-text
+2. **Observable Framework** This tool allowed for further customization in framing in the small multiples, allowing users to easily follow the grid of line charts. The flexibility to adjust line colors on increase or decrease allows for users to easily identify similarities and differences between states at certain time intervals.
+
+## Connecting Medical Debt Over Time to Systemic Healthcare Issues
+
+We are able to conclude that while the current policies and systems have potentially helped in reducing medical debt share, they have struggled to resolve the rising medical costs and debt since 2011. This trend is more prominent amongst households of lower income. This amount is even on the higher end as the dataset uses averages, which are typically skewed due to the richest 1%. Meaning that for most Americans, they have a lower income and a medical debt that takes a higher portion of they money. Even the drastic reduction in medical debt share is possibly a distraction caused by the Credit Bureau's decision to exclude medical debts under $500 in their reports. 
+
+All of these visualizations provide evidence that the current policies we have in place are not sufficient and have not shown significant benefits to the common people for over a decade. 
 
 ## References
+
+1. maybe
+
+2. Fredric Blavin, Breno Braga, Noah Johnson, Apueela Wekulom. 2024. The Changing Medical Debt Landscape in the United States. Accessible from https://datacatalog.urban.org/dataset/changing-medical-debt-landscape-united-states.
+

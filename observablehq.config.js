@@ -33,5 +33,9 @@ export default {
   // search: true, // activate search
   // linkify: true, // convert URLs in Markdown to links
   // typographer: false, // smart quotes and other typographic improvements
-  cleanUrls: false, // drop .html from URLs
+  // cleanUrls: false, // drop .html from URLs
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": false
 };

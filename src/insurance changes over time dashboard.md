@@ -4,9 +4,11 @@ title: insurance changes over time dashboard
 toc: false
 ---
 
-tableau stuff
+# Medical Debt Over Time
 
-<img src="./data/Pittsburgh.jpg" alt="Description" style="width: 100%">
+text
+
+## Visualizations:
 
 <div id="tableauVizIncome" 
   style="width: 100%; height: 800px;">
@@ -15,7 +17,7 @@ tableau stuff
 <script type="module"> 
   const vizUrl = "https://public.tableau.com/views/Dashboard1LineChart-MedicalDebtOverTime/LineChartMedicalDebtOverTime?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"; 
   const viz = new tableau.Viz( document.getElementById("tableauVizIncome"), 
-  vizUrl, { hideTabs: true, hideToolbar: false, width: "100%", height: "800px" } ); 
+  vizUrl, { hideTabs: true, hideToolbar: false, width: "110%", height: "800px" } ); 
 </script>
 
 ```js
@@ -115,7 +117,7 @@ function smallMultiples(data, { width } = {}, legend, title, yDomain, yLabel, yF
       label: yLabel,
       grid: true,
       tickFormat: yFormat,
-      domain: [0, 1800]
+      domain: [0, 2000]
     },
     color: {
       type: "categorical",
@@ -246,4 +248,20 @@ display(resize(width => incomeDebtScatterplot(firstRowData, { width }, "Median M
 display(resize(width => incomeDebtScatterplot(secondRowData, { width }, null, secondRowYears.length, incomeExtent, debtExtent)));
 ```
 
+## Process of Designing the Dashboard
 
+text
+
+## Design Rationale
+
+text
+
+## Tool(s)
+
+text
+
+## Connecting __ to Systemic Healthcare Issues
+
+text
+
+## References

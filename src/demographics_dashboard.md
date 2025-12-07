@@ -4,6 +4,12 @@ title: demographics dashboard
 toc: false
 ---
 
+# Demographic Patterns with Medical Debt 
+
+text
+
+## Visualizations:
+
 <!-- Jonas' visualizations -->
 ```js
 const debt = await FileAttachment("./data/med_debt_by_state.csv").csv({ typed: true });
@@ -153,3 +159,21 @@ We wanted to have a visualization that enables viewers to straightforwardly comp
 We can see from the Age & Charges bar graph that the groups with the highest medical charges are people aged 18-19 and older than 43 years old. The second visualization for Gender shows there is not a large difference medical charges across females compared to males. 
 
 One interesting obervation is how nearly two-thirds of the individuals who have medical debt are insured by their employer. This could indicate that companies are not providing sufficient funds for insurance, medical charges have gotten more expensive than what companies could offer, or both.
+
+## Process of Designing the Dashboard
+
+text
+
+## Design Rationale
+
+text
+
+## Tool(s)
+
+text
+
+## Connecting __ to Systemic Healthcare Issues
+
+text
+
+## References

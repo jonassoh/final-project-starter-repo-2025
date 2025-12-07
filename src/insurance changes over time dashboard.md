@@ -19,7 +19,7 @@ The visualizations present compelling evidence of rising medical debts, the urge
 <script type="module"> 
   const vizUrl = "https://public.tableau.com/views/Dashboard1LineChart-MedicalDebtOverTime/LineChartMedicalDebtOverTime?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"; 
   const viz = new tableau.Viz( document.getElementById("tableauVizIncome"), 
-  vizUrl, { hideTabs: true, hideToolbar: false, width: "50%", height: "800px" } ); 
+  vizUrl, { hideTabs: true, hideToolbar: false, width: "75%", height: "800px" } ); 
 </script>
 
 The plots above indicate that the share of medical debt has continually decreased, down to just 6% in 2023, while the proportion of individuals without health insurance has stagnated around 10% from 2018 - 2023. 
@@ -234,7 +234,7 @@ Overall, our analysis shows improvements in reducing medical share and proportio
 
 ## Process of Designing the Dashboard
 
-text
+When creating this dashboard, we began with identifying the dataset to show the medical debt across the united states and the historical trends for those affected by it the most. After searching, we found a dataset that contained all the information we needed for this dashboard: *The Changing Medical Debt Landscape in the United States*. We converted the strings in our dataset to decimals and created our visualizations. The line plot was created using Tableau Public while the other small multiples visualizations were created using observable framework to convey the historic trends in medical debt and insurance costs.
 
 ## Design Rationale
 
@@ -257,11 +257,9 @@ We used the following tools for our visualizations:
 
 We are able to conclude that while the current policies and systems have potentially helped in reducing medical debt share, they have struggled to resolve the rising medical costs and debt since 2011. This trend is more prominent amongst households of lower income. This amount is even on the higher end as the dataset uses averages, which are typically skewed due to the richest 1%. Meaning that for most Americans, they have a lower income and a medical debt that takes a higher portion of they money. Even the drastic reduction in medical debt share is possibly a distraction caused by the Credit Bureau's decision to exclude medical debts under $500 in their reports. 
 
-All of these visualizations provide evidence that the current policies we have in place are not sufficient and have not shown significant benefits to the common people for over a decade. 
+All of these visualizations suggest that the current policies we have in place are not sufficient and have not shown significant benefits to the common people for over a decade. 
 
 ## References
 
-1. maybe
-
-2. Fredric Blavin, Breno Braga, Noah Johnson, Apueela Wekulom. 2024. The Changing Medical Debt Landscape in the United States. Accessible from https://datacatalog.urban.org/dataset/changing-medical-debt-landscape-united-states.
+1. Fredric Blavin, Breno Braga, Noah Johnson, Apueela Wekulom. 2024. The Changing Medical Debt Landscape in the United States. Accessible from https://datacatalog.urban.org/dataset/changing-medical-debt-landscape-united-states.
 

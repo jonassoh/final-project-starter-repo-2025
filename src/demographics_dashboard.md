@@ -135,7 +135,7 @@ Immediately, we can observe the following:
 </div> 
 <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script> 
 <script type="module"> 
-  const vizUrl = "https://public.tableau.com/views/67336DashboardPart1/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"; 
+  const vizUrl = "https://public.tableau.com/views/AverageHouseholdIncomeandMedicalDebtMapbyYear/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"; 
   const viz = new tableau.Viz( document.getElementById("tableauVizIncome"), 
   vizUrl, { hideTabs: true, hideToolbar: false, width: "90%", height: "800px" } ); 
 </script>
@@ -195,9 +195,9 @@ Our dashboard incorporates 3 distinct visualizations to provide a comprehensive 
 
 **Tableau** was selected, as it has the capacity to create interactive and dynamic visualizations. The presence of filters within Tableau allows users to explore patterns across multiple demographic dimensions, where they can decide to filter by year or state and quickly identify populations at greatest risk.
 
-## Connecting __ to Systemic Healthcare Issues
+## Connecting Demographic Disparities to Systemic Healthcare Issues
 
-text
+Demographic disparities are often noted as one of the primary drivers of unequal medical debt in the United States. Factors such as race, gender, age, socioeconomic status, and insurance coverage all can impact individuals, and accumulate medical debt (Bennett et al., 2021). Certain groups are consistently facing higher costs, reduced access to quality healthcare, and greater financial strain. As medical debt has continued to grow across the country, disproportionately affecting communities with lower incomes, limited insurance options, and other systematic disadvantages. The issue is that its burden is distributed unevenly, reflecting larger inequities within the healthcare system. The goal of this dashboard is to increase awareness of how demographic factors shape medical debt outcomes and encourage deeper understanding of these systemic barriers that cause issues for some groups. 
 
 ## References
 

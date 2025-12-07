@@ -16,7 +16,7 @@ We want to convey to our audience how medical debt has evolved over time, how it
 
 ## Data Sources
 
-text
+We utilized key datasets from reliable sources ranging from publicly available yet thorough surveys to government supported reports. One of our primary datasets we will use is *The Changing Medical Debt Landscape in the United States*, which was recently updated in 2024 with crucial information on medical debt, demographics, and income from 2011 up until 2023. Additionally, we will utilize the following datasets: *Figure 1 the Residential Security Map of Pittsburgh, Pennsylvania....*, *What Is Your State Doing to Affect Access to Individual Market Coverage?*, *Medical Cost Personal Datasets.*, and *The State of Health Insurance Coverage in the U.S.* We carefully selected these datasets for their relevancy to our goals of showing the current state of the healthcare system on the population and call for action for change if our findings deem it necessary.
 
 ## Audience and Purpose
 

@@ -204,7 +204,6 @@ Demographic disparities are often noted as one of the primary drivers of unequal
 1. Bennett et al. (2021). Who Had Medical Debt in the United States? The United States Census Bureau.https://www.census.gov/library/stories/2021/04/who-had-medical-debt-in-united-states.html. 
 
 2. CHOI, M. (2017). *Medical Cost Personal Datasets*. Published online at kaggle.com. Retrieved from https://www.kaggle.com/datasets/mirichoi0218/insurance.
-https://www.kaggle.com/datasets/mirichoi0218/insurance.
 
 3. Collins, S. and Gupta, A. (2024). *The State of Health Insurance Coverage in the U.S. The Commonwealth Fund*. Published online at commonwealthfund.org. Retrieved from doi:https://doi.org/10.26099/byce-qc28.
 

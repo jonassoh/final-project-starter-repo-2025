@@ -15,6 +15,7 @@ export default {
   //     ]
   //   }
   // ],
+  toc: true,
   pages: [
     {name: "Insurance Changes Over Time", path: "/insurance_changes_over_time"},
     {name: "Potential Redlining", path: "/potential_redlining"},

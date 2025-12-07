@@ -1,7 +1,7 @@
 ---
 theme: dashboard
 title: Demographics Affected
-toc: false
+toc: true
 ---
 
 # Demographic Patterns with Medical Debt 

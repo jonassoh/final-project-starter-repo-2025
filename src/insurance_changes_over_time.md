@@ -1,7 +1,7 @@
 ---
 theme: dashboard
 title: Medical Debt Over Time
-toc: false
+toc: true
 ---
 
 # Medical Debt Over Time

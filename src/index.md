@@ -1,5 +1,5 @@
 ---
-toc: false
+toc: true
 ---
 
 # Medical Debt in the United States
@@ -28,7 +28,24 @@ Our primary audience includes policymakers, nonprofit organizations, healthcare 
 2. Examine modern redlining: Is redlining discrimination still occurring within U.S. healthcare or insurance systems, even though formal redlining is illegal?
 3. Identify most impacted groups: Which demographic groups (race, gender, age, socioeconomic status) are most affected by medical debt, and what systemic conditions intensify these disparities?
 
-## Medical Debt Over Time
+## Visualizations
+
+<div class="grid grid-cols-2" style="margin: 3rem 0;">
+  <div class="card">
+    <h2>Insurance Changes Over Time</h2>
+    <a href="./insurance-changes-over-time-dashboard">Explore trends in health insurance coverage and medical debt across states →</a>
+  </div>
+
+  <div class="card">
+    <h2>Demographics Dashboard</h2>
+    <a href="./demographics-dashboard">Analyze demographic patterns and their relationship to medical debt →</a>
+  </div>
+
+  <div class="card">
+    <h2>Potential Redlining</h2>
+    <a href="./potential-redlining">Investigate geographic patterns that may indicate systemic disparities →</a>
+  </div>
+</div>
 
 ```js
 import {smallMultiples} from "./components/med_debt_over_time.js";

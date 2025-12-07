@@ -1,7 +1,7 @@
 ---
 theme: dashboard
 title: Potential Redlining
-toc: false
+toc: true
 ---
 
 # Potential Health Insurance Redlining
